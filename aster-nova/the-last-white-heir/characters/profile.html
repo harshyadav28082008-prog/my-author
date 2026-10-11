@@ -1,0 +1,67 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0b0c10">
+  <title>Character Dossier | The Last White Heir</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="dossier-page">
+  <a class="dossier-back" href="index.html">
+    <span aria-hidden="true">←</span> Character Archive
+  </a>
+
+  <main id="profileMain" class="dossier-layout">
+    <div class="dossier-background"></div>
+
+    <div class="dossier-art">
+      <div class="art-glow"></div>
+      <img id="profileImage" src="" alt="">
+      <div id="artFallback" class="art-fallback" hidden></div>
+    </div>
+
+    <section class="dossier-panel" aria-labelledby="profileName">
+      <div class="dossier-panel-content">
+        <div class="dossier-topline">
+          <span id="profileNation">CHARACTER RECORD</span>
+          <span id="profileVolume">VOLUME I</span>
+        </div>
+
+        <p id="profileEyebrow" class="dossier-eyebrow">
+          OFFICIAL CHARACTER DOSSIER
+        </p>
+
+        <h1 id="profileName">Loading...</h1>
+        <p id="profileRole" class="dossier-role"></p>
+
+        <div class="dossier-divider">
+          <span>✦</span>
+        </div>
+
+        <div id="profileDetails" class="dossier-details"></div>
+
+        <div id="profileRestricted" class="dossier-restricted" hidden>
+          <span class="restricted-symbol" aria-hidden="true">◇</span>
+          <div>
+            <p class="restricted-label">RESTRICTED RECORD</p>
+            <p id="restrictedText"></p>
+          </div>
+          <span class="restricted-stamp">SEALED</span>
+        </div>
+
+        <p class="dossier-footer">
+          THE LAST WHITE HEIR
+          <span>·</span>
+          CHARACTER ARCHIVE
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <script src="characters.js"></script>
+  <script src="profile.js"></script>
+</body>
+</html>

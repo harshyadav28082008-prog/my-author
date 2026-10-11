@@ -1,0 +1,736 @@
+/* =========================
+   LOCATIONS ARCHIVE
+   THE LAST WHITE HEIR
+========================= */
+
+.locations-main {
+    width: 100%;
+    overflow: hidden;
+}
+
+.locations-hero {
+    min-height: 490px;
+    padding: 75px 22px 65px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.locations-emblem {
+    width: 43px;
+    height: 43px;
+    display: grid;
+    place-items: center;
+    border: 1px solid rgba(196, 214, 247, 0.3);
+    transform: rotate(45deg);
+    margin-bottom: 32px;
+    color: #d9e5fa;
+}
+
+.locations-emblem span {
+    transform: rotate(-45deg);
+    font-size: 1.2rem;
+}
+
+.locations-hero h1 {
+    margin: 17px 0 0;
+    font-size: clamp(2.5rem, 7vw, 5.8rem);
+    line-height: 1.08;
+    font-weight: normal;
+    letter-spacing: 0.045em;
+    text-shadow: 0 0 45px rgba(138, 170, 230, 0.12);
+}
+
+.locations-hero h1 span {
+    display: block;
+    margin-top: 8px;
+    color: #b9c9e5;
+    font-size: 0.72em;
+    letter-spacing: 0.13em;
+}
+
+.locations-intro {
+    max-width: 490px;
+    margin: 0;
+    color: #b0b9ca;
+    font-size: 1rem;
+    line-height: 1.9;
+}
+
+.locations-subtitle {
+    margin-top: 28px;
+    color: #7f8da5;
+    font: 0.58rem/1.8 Arial, sans-serif;
+    letter-spacing: 0.17em;
+}
+
+/* =========================
+   ARCHIVE HEADING
+========================= */
+
+.locations-archive {
+    width: 100%;
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 35px 30px 95px;
+}
+
+.locations-heading {
+    max-width: 560px;
+    margin: 0 auto 45px;
+    text-align: center;
+}
+
+.locations-heading h2 {
+    margin: 14px 0;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    line-height: 1.2;
+    font-weight: normal;
+}
+
+.locations-heading h2 span {
+    display: block;
+    color: #aebfdd;
+    font-style: italic;
+}
+
+.locations-heading > p:last-child {
+    color: var(--muted);
+    font-size: 0.92rem;
+    line-height: 1.8;
+}
+
+/* =========================
+   TWO-BY-TWO GALLERY
+========================= */
+
+.location-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 25px;
+    align-items: stretch;
+}
+
+.location-entry {
+    position: relative;
+    min-width: 0;
+    min-height: 360px;
+    overflow: hidden;
+    isolation: isolate;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    padding: 22px;
+    color: var(--silver);
+    text-decoration: none;
+
+    border: 1px solid var(--border);
+    background: linear-gradient(
+        145deg,
+        rgba(23, 31, 47, 0.94),
+        rgba(9, 13, 22, 0.97)
+    );
+
+    transition:
+        transform 0.35s ease,
+        border-color 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+.location-entry::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+
+    background: radial-gradient(
+        ellipse at 50% 25%,
+        rgba(123, 153, 208, 0.13),
+        transparent 68%
+    );
+
+    opacity: 0.8;
+    transition: opacity 0.35s ease;
+}
+
+.location-entry:hover {
+    transform: translateY(-6px);
+    border-color: rgba(178, 205, 249, 0.48);
+    box-shadow: 0 20px 55px rgba(0, 0, 0, 0.24);
+}
+
+.location-entry:hover::before {
+    opacity: 1;
+}
+
+.location-entry:focus-visible {
+    outline: 2px solid #b9c9e5;
+    outline-offset: 4px;
+}
+
+.location-index {
+    position: absolute;
+    top: 17px;
+    right: 19px;
+    z-index: 2;
+
+    color: rgba(199, 215, 242, 0.65);
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+}
+
+.location-art {
+    position: relative;
+    height: 165px;
+    flex: 0 0 165px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+    isolation: isolate;
+}
+
+.location-copy {
+    position: relative;
+    padding-top: 18px;
+}
+
+.location-category {
+    margin: 0 0 10px;
+    color: #91a8d0;
+    font: 0.57rem/1.7 Arial, sans-serif;
+    letter-spacing: 0.13em;
+}
+
+.location-copy h3 {
+    margin: 0 0 11px;
+    font-size: clamp(1.25rem, 2.5vw, 1.8rem);
+    font-weight: normal;
+    line-height: 1.3;
+}
+
+.location-description {
+    max-width: 340px;
+    margin: 0;
+
+    color: #a4afc2;
+    font-size: 0.86rem;
+    line-height: 1.75;
+}
+
+.location-link {
+    display: inline-block;
+    margin-top: 19px;
+
+    color: #c5d5f0;
+    font: 0.61rem Arial, sans-serif;
+    letter-spacing: 0.12em;
+}
+
+.location-link b {
+    margin-left: 7px;
+    font-size: 0.9rem;
+    transition: margin-left 0.25s ease;
+}
+
+.location-entry:hover .location-link b {
+    margin-left: 12px;
+}
+
+/* =========================
+   I. ROYAL LIBRARY
+========================= */
+
+.royal-library-entry {
+    background: linear-gradient(
+        145deg,
+        rgba(28, 36, 54, 0.96),
+        rgba(9, 13, 22, 0.98)
+    );
+}
+
+.library-art {
+    background: radial-gradient(
+        ellipse at center,
+        rgba(155, 179, 224, 0.12),
+        transparent 68%
+    );
+}
+
+.library-orbit {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+
+    border: 1px solid rgba(174, 199, 238, 0.3);
+    border-radius: 50%;
+
+    transform: translate(-50%, -50%) rotateX(58deg);
+}
+
+.library-art .orbit-one {
+    width: 155px;
+    height: 115px;
+}
+
+.library-art .orbit-two {
+    width: 110px;
+    height: 80px;
+    border-color: rgba(174, 199, 238, 0.18);
+}
+
+.library-book {
+    position: relative;
+    z-index: 1;
+
+    display: grid;
+    place-items: center;
+    width: 66px;
+    height: 91px;
+
+    border: 1px solid rgba(197, 215, 244, 0.55);
+    background: linear-gradient(
+        135deg,
+        #34415a,
+        #141c2b 65%,
+        #29364d
+    );
+
+    color: #d8e5ff;
+    font-size: 2rem;
+
+    box-shadow: 0 0 35px rgba(134, 165, 223, 0.15);
+    transform: rotate(-5deg);
+}
+
+.library-rays {
+    position: absolute;
+    width: 1px;
+    height: 130px;
+    background: linear-gradient(
+        transparent,
+        rgba(183, 204, 239, 0.25),
+        transparent
+    );
+}
+
+/* =========================
+   II. THE BURNED CASTLE
+========================= */
+
+.burned-castle-entry {
+    background: linear-gradient(
+        145deg,
+        rgba(40, 30, 31, 0.96),
+        rgba(13, 12, 18, 0.98)
+    );
+}
+
+.burned-castle-entry .location-category {
+    color: #c5a39b;
+}
+
+.burned-castle-entry .location-link {
+    color: #dfc1b7;
+}
+
+.burned-art {
+    background: radial-gradient(
+        ellipse at 50% 75%,
+        rgba(156, 89, 73, 0.16),
+        transparent 66%
+    );
+}
+
+.ruin-moon {
+    position: absolute;
+    width: 65px;
+    height: 65px;
+    top: 13px;
+    border-radius: 50%;
+
+    background: radial-gradient(
+        circle at 35% 30%,
+        rgba(235, 223, 204, 0.65),
+        rgba(153, 132, 126, 0.18) 60%,
+        transparent 72%
+    );
+
+    opacity: 0.55;
+}
+
+.ruin-tower {
+    position: absolute;
+    bottom: 14px;
+
+    width: 39px;
+    height: 78px;
+
+    border: 1px solid rgba(192, 160, 148, 0.38);
+    background: linear-gradient(
+        90deg,
+        rgba(66, 52, 53, 0.85),
+        rgba(125, 95, 88, 0.55),
+        rgba(39, 34, 39, 0.9)
+    );
+}
+
+.ruin-tower::before {
+    content: "";
+    position: absolute;
+    top: -23px;
+    left: -8px;
+
+    width: 0;
+    height: 0;
+
+    border-left: 27px solid transparent;
+    border-right: 27px solid transparent;
+    border-bottom: 24px solid rgba(126, 96, 88, 0.5);
+}
+
+.ruin-left {
+    left: calc(50% - 68px);
+    height: 64px;
+    transform: rotate(-5deg);
+}
+
+.ruin-center {
+    left: calc(50% - 19px);
+    height: 103px;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+
+.ruin-center::before {
+    border-bottom-color: rgba(110, 84, 79, 0.55);
+}
+
+.ruin-right {
+    left: calc(50% + 28px);
+    height: 72px;
+    transform: rotate(4deg);
+}
+
+.ruin-ground {
+    position: absolute;
+    left: 12%;
+    right: 12%;
+    bottom: 12px;
+    height: 1px;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(189, 139, 124, 0.55),
+        transparent
+    );
+}
+
+/* =========================
+   III. NEXUS COUNCIL
+========================= */
+
+.nexus-entry {
+    background: linear-gradient(
+        145deg,
+        rgba(31, 29, 47, 0.96),
+        rgba(9, 12, 22, 0.98)
+    );
+}
+
+.nexus-entry .location-category {
+    color: #b1a5d6;
+}
+
+.nexus-entry .location-link {
+    color: #d0c4f1;
+}
+
+.nexus-art {
+    background: radial-gradient(
+        ellipse at center,
+        rgba(132, 111, 184, 0.15),
+        transparent 67%
+    );
+}
+
+.nexus-ring {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+
+    border: 1px solid rgba(185, 170, 224, 0.34);
+    border-radius: 50%;
+
+    transform: translate(-50%, -50%);
+}
+
+.nexus-ring-one {
+    width: 145px;
+    height: 92px;
+    transform: translate(-50%, -50%) rotate(28deg);
+}
+
+.nexus-ring-two {
+    width: 145px;
+    height: 92px;
+    transform: translate(-50%, -50%) rotate(-28deg);
+}
+
+.nexus-ring-three {
+    width: 92px;
+    height: 92px;
+    border-color: rgba(203, 191, 232, 0.24);
+}
+
+.nexus-core {
+    position: relative;
+    z-index: 1;
+
+    color: #ded3ff;
+    font-size: 2.8rem;
+
+    text-shadow: 0 0 28px rgba(174, 148, 231, 0.48);
+}
+
+/* =========================
+   IV. AETHERION CONCORD
+   ACADEMY
+========================= */
+
+.academy-entry {
+    background: linear-gradient(
+        145deg,
+        rgba(23, 39, 52, 0.96),
+        rgba(8, 13, 22, 0.98)
+    );
+}
+
+.academy-art {
+    background: radial-gradient(
+        ellipse at 50% 80%,
+        rgba(104, 161, 193, 0.17),
+        transparent 65%
+    );
+}
+
+.academy-star {
+    position: absolute;
+    top: 2px;
+    z-index: 2;
+
+    color: #d5e9ff;
+    font-size: 1.5rem;
+
+    text-shadow: 0 0 24px rgba(153, 208, 246, 0.65);
+}
+
+.academy-tower {
+    position: absolute;
+    bottom: 12px;
+
+    width: 36px;
+    height: 78px;
+
+    border: 1px solid rgba(166, 202, 227, 0.38);
+    background: linear-gradient(
+        90deg,
+        rgba(45, 71, 91, 0.65),
+        rgba(106, 143, 169, 0.35),
+        rgba(29, 48, 65, 0.8)
+    );
+}
+
+.academy-tower::before {
+    content: "";
+    position: absolute;
+    top: -23px;
+    left: -8px;
+
+    width: 0;
+    height: 0;
+
+    border-left: 25px solid transparent;
+    border-right: 25px solid transparent;
+    border-bottom: 24px solid rgba(120, 165, 196, 0.52);
+}
+
+.academy-left {
+    left: calc(50% - 67px);
+    height: 65px;
+}
+
+.academy-center {
+    left: calc(50% - 18px);
+    height: 105px;
+    width: 36px;
+}
+
+.academy-right {
+    left: calc(50% + 31px);
+    height: 73px;
+}
+
+.academy-glow {
+    position: absolute;
+    left: 50%;
+    bottom: 5px;
+
+    width: 150px;
+    height: 38px;
+
+    background: rgba(106, 174, 218, 0.18);
+    filter: blur(20px);
+    transform: translateX(-50%);
+}
+
+/* =========================
+   ARCHIVE FOOTNOTE
+========================= */
+
+.archive-note {
+    margin: 35px 0 0;
+    color: #75839a;
+
+    text-align: center;
+    font: 0.58rem/2 Arial, sans-serif;
+    letter-spacing: 0.14em;
+}
+
+/* =========================
+   RESPONSIVE LAYOUT
+========================= */
+
+@media (max-width: 650px) {
+    .locations-hero {
+        min-height: 440px;
+        padding: 65px 22px 50px;
+    }
+
+    .locations-hero h1 {
+        font-size: clamp(2.3rem, 10vw, 4rem);
+    }
+
+    .locations-intro {
+        font-size: 0.93rem;
+    }
+
+    .locations-archive {
+        padding: 30px 17px 70px;
+    }
+
+    .locations-heading {
+        margin-bottom: 32px;
+    }
+
+    .location-grid {
+        gap: 13px;
+    }
+
+    .location-entry {
+        min-height: 320px;
+        padding: 14px;
+    }
+
+    .location-art {
+        height: 130px;
+        flex-basis: 130px;
+    }
+
+    .location-copy {
+        padding-top: 15px;
+    }
+
+    .location-category {
+        font-size: 0.49rem;
+        letter-spacing: 0.08em;
+    }
+
+    .location-copy h3 {
+        font-size: 1.15rem;
+        overflow-wrap: anywhere;
+    }
+
+    .location-description {
+        font-size: 0.78rem;
+        line-height: 1.65;
+    }
+
+    .location-link {
+        font-size: 0.53rem;
+        letter-spacing: 0.07em;
+    }
+
+    .location-index {
+        top: 12px;
+        right: 12px;
+    }
+
+    .ruin-tower {
+        transform-origin: bottom center;
+    }
+
+    .ruin-left {
+        left: calc(50% - 55px);
+    }
+
+    .ruin-right {
+        left: calc(50% + 17px);
+    }
+
+    .academy-left {
+        left: calc(50% - 55px);
+    }
+
+    .academy-right {
+        left: calc(50% + 19px);
+    }
+
+    .archive-note {
+        font-size: 0.52rem;
+    }
+}
+
+@media (max-width: 360px) {
+    .location-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .location-entry {
+        min-height: 340px;
+        padding: 20px;
+    }
+
+    .location-art {
+        height: 150px;
+        flex-basis: 150px;
+    }
+
+    .location-copy h3 {
+        font-size: 1.55rem;
+    }
+
+    .location-description {
+        font-size: 0.85rem;
+    }
+
+    .location-link {
+        font-size: 0.6rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .location-entry,
+    .location-entry::before,
+    .location-link b {
+        transition: none;
+    }
+}

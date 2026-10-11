@@ -1,0 +1,68 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Known World | The Last White Heir</title>
+  <link rel="stylesheet" href="world.css">
+</head>
+<body>
+  <main class="atlas">
+    <div class="map-stage">
+  <div class="map-canvas">
+    <img
+      class="world-map"
+      src="world-map.svg"
+      alt="Map of the known world"
+    >
+    <div class="map-hotspots" id="mapHotspots"></div>
+
+  </div>
+</div>
+
+<div class="map-shade"></div>
+
+    <header class="atlas-header">
+      <a href="../index.html" class="back-link">← Return to the Novel</a>
+      <div>
+        <p class="eyebrow">THE LAST WHITE HEIR</p>
+        <h1>The Known World</h1>
+      </div>
+      <p class="header-note">Select a nation to discover its secrets</p>
+    </header>
+
+    <div class="map-hotspots" id="mapHotspots"></div>
+
+    <section class="nation-overlay" id="nationOverlay"
+             aria-hidden="true" aria-labelledby="nationName">
+      <button class="close-panel" id="closePanel"
+              aria-label="Close nation details">×</button>
+
+      <div class="overlay-content">
+        <p class="eyebrow" id="nationRegion">NATION DOSSIER</p>
+        <h2 id="nationName">White Nation</h2>
+
+        <div class="ornament"></div>
+
+        <p class="detail-label">CAPITAL</p>
+        <p class="capital-name" id="nationCapital">Aurellion</p>
+
+        <p class="nation-description" id="nationDescription"></p>
+
+        <a class="explore-link" id="exploreNation"
+           href="nations/white.html">
+          Explore Nation <span>↗</span>
+        </a>
+      </div>
+    </section>
+
+    <footer class="atlas-footer">
+      <span>THE KNOWN WORLD</span>
+      <span>NINE NATIONS · COUNTLESS SECRETS</span>
+    </footer>
+  </main>
+
+  <script src="world.js"></script>
+</body>
+</html>

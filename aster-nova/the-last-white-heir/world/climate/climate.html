@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Climate of the Nations | The Last White Heir</title>
+
+  <link rel="stylesheet" href="climate.css">
+</head>
+<body>
+
+  <div class="climate-background" aria-hidden="true">
+    <div class="stars"></div>
+    <div class="atmosphere"></div>
+  </div>
+
+  <main class="climate-page">
+
+    <header class="page-header">
+      <a href="index.html" class="back-link">
+        ← Return to the World
+      </a>
+
+      <p class="eyebrow">THE LAST WHITE HEIR</p>
+      <h1>Climate of the Nations</h1>
+      <p class="intro">
+        Twelve months. Nine nations. Nine distinct expressions
+        of nature across the known world.
+      </p>
+    </header>
+
+    <section id="nationSelection">
+      <div class="section-heading">
+        <p class="eyebrow">SELECT A REGION</p>
+        <h2>The Nine Climates</h2>
+        <p>Choose a nation to examine its climate throughout the year.</p>
+      </div>
+
+      <div id="nationGrid" class="nation-grid"></div>
+    </section>
+
+    <section
+      id="climateDetails"
+      class="climate-details"
+      aria-live="polite"
+      hidden
+    >
+      <button id="backToNations" class="return-button" type="button">
+        ← All Nations
+      </button>
+
+      <header class="detail-header">
+        <p id="detailRegion" class="eyebrow"></p>
+        <h2 id="detailName"></h2>
+        <p id="detailDescription" class="detail-description"></p>
+        <div class="detail-ornament" aria-hidden="true">✦</div>
+      </header>
+
+      <div id="monthGrid" class="month-grid"></div>
+
+      <button id="backToNationsBottom"
+              class="return-button bottom-return"
+              type="button">
+        ← Return to All Nations
+      </button>
+    </section>
+
+    <footer class="page-footer">
+      <a href="index.html">The World</a>
+      <span>THE RHYTHM OF THE NATURAL WORLD</span>
+      <a href="atlas.html">Open Atlas →</a>
+    </footer>
+
+  </main>
+
+  <script src="climate.js"></script>
+</body>
+</html>

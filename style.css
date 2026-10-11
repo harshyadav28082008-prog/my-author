@@ -1,0 +1,330 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --background: #0b0c10;
+    --surface: rgba(13, 22, 38, 0.78);
+    --border: rgba(120, 170, 255, 0.12);
+    --text: #f2f2f0;
+    --muted: #999da8;
+    --accent: #d8c28f;
+}
+
+/* -------------------------
+   PAGE
+------------------------- */
+body {
+    background: var(--background);
+    color: var(--text);
+    font-family: Georgia, "Times New Roman", serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* -------------------------
+   ANIMATED WAVES
+------------------------- */
+.background-waves {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 45vh;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+    opacity: 0.7;
+}
+
+.background-waves svg {
+    width: 120%;
+    height: 100%;
+    position: absolute;
+    left: -10%;
+    bottom: 0;
+}
+
+.wave {
+    fill: none;
+    stroke-linecap: round;
+    vector-effect: non-scaling-stroke;
+}
+
+.wave-one {
+    fill: rgba(216, 194, 143, 0.04);
+    stroke: rgba(216, 194, 143, 0.07);
+    stroke-width: 1.5;
+    animation: waveMoveOne 18s ease-in-out infinite alternate;
+}
+
+.wave-two {
+    fill: rgba(255, 255, 255, 0.02);
+    stroke: rgba(255, 255, 255, 0.05);
+    stroke-width: 1;
+    animation: waveMoveTwo 23s ease-in-out infinite alternate-reverse;
+}
+
+.wave-three {
+    fill: rgba(216, 194, 143, 0.03);
+    stroke: rgba(216, 194, 143, 0.04);
+    stroke-width: 1;
+    animation: waveMoveThree 28s ease-in-out infinite alternate;
+}
+
+@keyframes waveMoveOne {
+    from { transform: translateX(-5%); }
+    to   { transform: translateX(5%); }
+}
+
+@keyframes waveMoveTwo {
+    from { transform: translateX(5%); }
+    to   { transform: translateX(-5%); }
+}
+
+@keyframes waveMoveThree {
+    from { transform: translateX(-3%); }
+    to   { transform: translateX(7%); }
+}
+
+/* -------------------------
+   MAIN CONTENT
+------------------------- */
+.portal {
+    position: relative;
+    z-index: 2;
+    width: min(1100px, 92%);
+    margin: auto;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 70px 0 30px;
+}
+
+/* -------------------------
+   INTRO
+------------------------- */
+.intro {
+    margin-bottom: 55px;
+    animation: introAppear 1.2s ease both;
+}
+
+.eyebrow {
+    color: var(--accent);
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    letter-spacing: 4px;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: clamp(48px, 9vw, 90px);
+    font-weight: normal;
+    line-height: 1;
+    margin-bottom: 20px;
+}
+
+.intro-text {
+    color: var(--muted);
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    max-width: 420px;
+    line-height: 1.7;
+}
+
+@keyframes introAppear {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* -------------------------
+   AUTHOR CARDS
+------------------------- */
+.authors {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.author-card,
+.future-card {
+    width: 100%;
+    min-height: 105px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--text);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    display: grid;
+    grid-template-columns: 55px 1fr auto;
+    align-items: center;
+    padding: 25px;
+    text-align: left;
+    border-radius: 3px;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.18);
+    transition:
+        transform 0.35s ease,
+        border-color 0.35s ease,
+        background 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+/* Floating animation */
+.author-card {
+    cursor: pointer;
+    animation: cardFloat 6s ease-in-out infinite;
+}
+
+.author-card:nth-child(2) {
+    animation-delay: -2s;
+}
+
+.author-card:nth-child(3) {
+    animation-delay: -4s;
+}
+
+.future-card {
+    animation: cardFloatSlow 9s ease-in-out infinite;
+    animation-delay: -3s;
+}
+
+@keyframes cardFloat {
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(-5px); }
+}
+
+@keyframes cardFloatSlow {
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(-3px); }
+}
+
+/* Main Aster card */
+.author-card.primary {
+    min-height: 135px;
+}
+
+/* Hover – fixed (animation pauses so transform works) */
+.author-card:hover {
+    animation-play-state: paused;
+    transform: translateY(-8px) translateX(8px);
+    border-color: rgba(216, 194, 143, 0.65);
+    background: rgba(23, 26, 33, 0.88);
+    box-shadow:
+        0 18px 45px rgba(0, 0, 0, 0.28),
+        0 0 25px rgba(216, 194, 143, 0.06);
+}
+
+/* Press/touch */
+.author-card:active {
+    transform: scale(0.985);
+}
+
+/* -------------------------
+   CARD CONTENT
+------------------------- */
+.card-number {
+    color: var(--accent);
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    letter-spacing: 2px;
+}
+
+h2 {
+    font-size: 27px;
+    font-weight: normal;
+    margin-bottom: 7px;
+}
+
+.author-card p,
+.future-card p {
+    color: var(--muted);
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+}
+
+.enter {
+    color: var(--accent);
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    letter-spacing: 2px;
+    transition: transform 0.3s ease;
+}
+
+.author-card:hover .enter {
+    transform: translateX(5px);
+}
+
+/* Future section */
+.future-card {
+    opacity: 0.40;
+}
+
+/* -------------------------
+   FOOTER
+------------------------- */
+footer {
+    margin-top: 70px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    color: var(--muted);
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    letter-spacing: 1px;
+}
+
+/* -------------------------
+   MOBILE
+------------------------- */
+@media (max-width: 600px) {
+    .portal {
+        padding-top: 50px;
+    }
+
+    .background-waves {
+        height: 38vh;
+    }
+
+    .author-card,
+    .future-card {
+        grid-template-columns: 40px 1fr;
+        gap: 12px;
+        padding: 20px;
+    }
+
+    .enter {
+        grid-column: 2;
+    }
+
+    h2 {
+        font-size: 23px;
+    }
+
+    footer {
+        flex-direction: column;
+        gap: 8px;
+    }
+}
+
+/* -------------------------
+   REDUCED MOTION
+------------------------- */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+    }
+}

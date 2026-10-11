@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Author Portal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Animated background -->
+    <div class="background-waves" aria-hidden="true">
+        <svg viewBox="0 0 1440 700" preserveAspectRatio="none">
+            <path class="wave wave-one"
+                d="M0,420 C240,300 420,500 720,390 C1000,285 1190,390 1440,300 L1440,700 L0,700 Z">
+            </path>
+            <path class="wave wave-two"
+                d="M0,500 C260,390 450,570 730,470 C1000,370 1200,500 1440,390 L1440,700 L0,700 Z">
+            </path>
+            <path class="wave wave-three"
+                d="M0,580 C250,480 470,620 760,530 C1050,440 1230,570 1440,470 L1440,700 L0,700 Z">
+            </path>
+        </svg>
+    </div>
+
+    <main class="portal">
+        <section class="intro">
+            <p class="eyebrow">AN AUTHOR'S WORLD</p>
+            <h1>Welcome.</h1>
+            <p class="intro-text">
+                Stories, ideas, worlds and things worth exploring.
+            </p>
+        </section>
+
+        <section class="authors">
+            <button class="author-card primary" onclick="enterAuthor('aster')">
+                <span class="card-number">01</span>
+                <div>
+                    <h2>Aster Nova</h2>
+                    <p>Fiction · Worlds · Stories</p>
+                </div>
+                <span class="enter">ENTER →</span>
+            </button>
+
+            <button class="author-card" onclick="enterAuthor('nova')">
+                <span class="card-number">02</span>
+                <div>
+                    <h2>Nova Aster</h2>
+                    <p>Ideas · Questions · Non-fiction</p>
+                </div>
+                <span class="enter">ENTER →</span>
+            </button>
+
+            <button class="author-card" onclick="enterAuthor('honey')">
+                <span class="card-number">03</span>
+                <div>
+                    <h2>Honey</h2>
+                    <p>Stories · Fiction</p>
+                </div>
+                <span class="enter">ENTER →</span>
+            </button>
+
+            <div class="future-card">
+                <span class="card-number">04</span>
+                <div>
+                    <h2>Another world</h2>
+                    <p>This space will appear when the time comes.</p>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <span>© 2026</span>
+            <span>Explore. Read. Think.</span>
+        </footer>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

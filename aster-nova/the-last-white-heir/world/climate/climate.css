@@ -1,0 +1,495 @@
+:root {
+  --background: #080d18;
+  --surface: rgba(17, 27, 46, 0.78);
+  --border: rgba(176, 200, 235, 0.17);
+  --text: #edf2fa;
+  --muted: #a4b2c8;
+  --accent: #a9c8ef;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+html {
+  min-height: 100%;
+  background: var(--background);
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  color: var(--text);
+  background: var(--background);
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.climate-background {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+  background:
+    radial-gradient(
+      ellipse at 50% 0%,
+      rgba(49, 77, 125, 0.28),
+      transparent 58%
+    ),
+    linear-gradient(160deg, #101a2d, #080d18 65%, #0a1221);
+}
+
+.stars {
+  position: absolute;
+  inset: 0;
+  opacity: 0.48;
+  background-image:
+    radial-gradient(1px 1px at 12% 18%, #fff, transparent),
+    radial-gradient(1px 1px at 28% 67%, #c9dcff, transparent),
+    radial-gradient(2px 2px at 76% 24%, #fff, transparent),
+    radial-gradient(1px 1px at 88% 76%, #c9dcff, transparent),
+    radial-gradient(1px 1px at 62% 53%, #fff, transparent);
+  background-size: 420px 360px;
+}
+
+.atmosphere {
+  position: absolute;
+  right: -15%;
+  bottom: -25%;
+  width: 60vw;
+  height: 60vw;
+  border-radius: 50%;
+  background: #6557a6;
+  filter: blur(100px);
+  opacity: 0.10;
+}
+
+.climate-page {
+  position: relative;
+  z-index: 1;
+  width: min(1120px, 100%);
+  margin: 0 auto;
+  padding: 25px 30px 0;
+}
+
+.page-header {
+  padding: 10px 0 38px;
+  text-align: center;
+}
+
+.back-link {
+  display: block;
+  width: fit-content;
+  color: #b6c4d9;
+  font-family: Arial, sans-serif;
+  font-size: 0.82rem;
+}
+
+.back-link:hover {
+  color: white;
+}
+
+.eyebrow {
+  color: #9cb8df;
+  font-family: Arial, sans-serif;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.19em;
+  line-height: 1.8;
+}
+
+.page-header > .eyebrow {
+  margin: 38px 0 10px;
+}
+
+.page-header h1 {
+  margin: 0;
+  font-size: clamp(2.4rem, 6vw, 4.3rem);
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.intro {
+  max-width: 590px;
+  margin: 18px auto 0;
+  color: var(--muted);
+  font-size: 0.96rem;
+  line-height: 1.9;
+}
+
+.section-heading {
+  margin-bottom: 23px;
+}
+
+.section-heading .eyebrow {
+  margin: 0 0 5px;
+}
+
+.section-heading h2 {
+  margin: 0;
+  font-size: clamp(1.7rem, 4vw, 2.35rem);
+  font-weight: 400;
+}
+
+.section-heading > p:last-child {
+  color: var(--muted);
+  font-family: Arial, sans-serif;
+  font-size: 0.86rem;
+  line-height: 1.8;
+}
+
+/* NINE NATIONS: 3 × 3 */
+
+.nation-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  padding-bottom: 45px;
+}
+
+.nation-card {
+  --nation-color: #a9c8ef;
+
+  position: relative;
+  display: flex;
+  min-height: 190px;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding: 23px;
+  overflow: hidden;
+  border: 1px solid color-mix(
+    in srgb, var(--nation-color) 30%, transparent
+  );
+  border-radius: 13px;
+  background:
+    radial-gradient(
+      circle at 85% 15%,
+      color-mix(in srgb, var(--nation-color) 17%, transparent),
+      transparent 55%
+    ),
+    linear-gradient(
+      145deg,
+      rgba(31, 44, 65, 0.92),
+      rgba(10, 17, 30, 0.96)
+    );
+  text-align: left;
+  cursor: pointer;
+  transition:
+    transform 220ms ease,
+    border-color 220ms ease,
+    box-shadow 220ms ease;
+}
+
+.nation-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 100%;
+  background: var(--nation-color);
+}
+
+.nation-card:hover,
+.nation-card:focus-visible {
+  transform: translateY(-4px);
+  border-color: var(--nation-color);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
+  outline: none;
+}
+
+.nation-card:focus-visible {
+  outline: 2px solid var(--nation-color);
+  outline-offset: 4px;
+}
+
+.nation-index {
+  position: absolute;
+  top: 17px;
+  left: 22px;
+  color: #8494ad;
+  font-family: Arial, sans-serif;
+  font-size: 0.68rem;
+  letter-spacing: 0.15em;
+}
+
+.nation-symbol {
+  position: absolute;
+  top: 12px;
+  right: 19px;
+  color: var(--nation-color);
+  font-size: 1.9rem;
+  opacity: 0.85;
+}
+
+.nation-card h3 {
+  margin: 0 0 9px;
+  font-size: clamp(1.15rem, 2.3vw, 1.55rem);
+  font-weight: 400;
+  line-height: 1.35;
+}
+
+.nation-climate {
+  margin: 0 0 18px;
+  color: #aab7cb;
+  font-family: Arial, sans-serif;
+  font-size: 0.76rem;
+  line-height: 1.7;
+}
+
+.open-climate {
+  color: var(--nation-color);
+  font-family: Arial, sans-serif;
+  font-size: 0.75rem;
+}
+
+/* NATION ACCENTS */
+
+.nation-card[data-nation="white"] {
+  --nation-color: #e5eaf4;
+}
+
+.nation-card[data-nation="blue"] {
+  --nation-color: #579de0;
+}
+
+.nation-card[data-nation="indigo"] {
+  --nation-color: #8581df;
+}
+
+.nation-card[data-nation="red"] {
+  --nation-color: #d34c45;
+}
+
+.nation-card[data-nation="yellow"] {
+  --nation-color: #e4c75d;
+}
+
+.nation-card[data-nation="orange"] {
+  --nation-color: #e9944a;
+}
+
+.nation-card[data-nation="black"] {
+  --nation-color: #aaa19b;
+}
+
+.nation-card[data-nation="violet"] {
+  --nation-color: #ad78d2;
+}
+
+.nation-card[data-nation="green"] {
+  --nation-color: #70ad73;
+}
+
+/* MONTHLY DETAIL VIEW */
+
+.climate-details {
+  --nation-color: #a9c8ef;
+  padding-bottom: 45px;
+}
+
+.return-button {
+  padding: 11px 16px;
+  border: 1px solid color-mix(
+    in srgb, var(--nation-color) 40%, transparent
+  );
+  border-radius: 7px;
+  color: #d4e2f6;
+  background: rgba(17, 27, 46, 0.8);
+  font-family: Arial, sans-serif;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: background 200ms ease, border-color 200ms ease;
+}
+
+.return-button:hover {
+  border-color: var(--nation-color);
+  background: rgba(39, 56, 83, 0.85);
+}
+
+.detail-header {
+  margin: 35px 0 28px;
+  padding: 30px;
+  border: 1px solid color-mix(
+    in srgb, var(--nation-color) 35%, transparent
+  );
+  border-radius: 14px;
+  background:
+    radial-gradient(
+      ellipse at 50% 0%,
+      color-mix(in srgb, var(--nation-color) 13%, transparent),
+      transparent 75%
+    ),
+    rgba(12, 20, 35, 0.85);
+  text-align: center;
+}
+
+.detail-header .eyebrow {
+  margin: 0 0 9px;
+  color: var(--nation-color);
+}
+
+.detail-header h2 {
+  margin: 0;
+  font-size: clamp(2rem, 5vw, 3.3rem);
+  font-weight: 400;
+}
+
+.detail-description {
+  max-width: 690px;
+  margin: 15px auto 0;
+  color: var(--muted);
+  font-family: Arial, sans-serif;
+  font-size: 0.88rem;
+  line-height: 1.9;
+}
+
+.detail-ornament {
+  margin-top: 22px;
+  color: var(--nation-color);
+}
+
+.month-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 13px;
+}
+
+.month-card {
+  position: relative;
+  min-height: 150px;
+  padding: 21px;
+  border: 1px solid color-mix(
+    in srgb, var(--nation-color) 22%, transparent
+  );
+  border-radius: 10px;
+  background: rgba(16, 26, 44, 0.83);
+}
+
+.month-number {
+  color: var(--nation-color);
+  font-family: Arial, sans-serif;
+  font-size: 0.63rem;
+  letter-spacing: 0.15em;
+}
+
+.month-card h3 {
+  margin: 12px 0 9px;
+  font-size: 1.2rem;
+  font-weight: 400;
+}
+
+.month-card p {
+  margin: 0;
+  color: #b0bdd0;
+  font-family: Arial, sans-serif;
+  font-size: 0.82rem;
+  line-height: 1.8;
+}
+
+.month-card.unspecified {
+  border-style: dashed;
+  opacity: 0.8;
+}
+
+.month-card.unspecified p {
+  font-style: italic;
+}
+
+.bottom-return {
+  margin-top: 25px;
+}
+
+.page-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 14px;
+  padding: 20px 0;
+  border-top: 1px solid rgba(170, 195, 230, 0.12);
+  color: #8593a9;
+  font-family: Arial, sans-serif;
+  font-size: 0.65rem;
+}
+
+.page-footer a {
+  color: #c0d4f0;
+}
+
+.page-footer a:hover {
+  color: white;
+}
+
+@media (max-width: 750px) {
+  .climate-page {
+    padding: 20px 18px 0;
+  }
+
+  .nation-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .nation-card {
+    min-height: 175px;
+    padding: 18px;
+  }
+
+  .month-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 430px) {
+  .page-header h1 {
+    font-size: 2.5rem;
+  }
+
+  .nation-grid,
+  .month-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .nation-card {
+    min-height: 155px;
+  }
+
+  .detail-header {
+    padding: 23px 16px;
+  }
+
+  .month-card {
+    min-height: 125px;
+  }
+
+  .page-footer {
+    font-size: 0.57rem;
+    gap: 10px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+  }

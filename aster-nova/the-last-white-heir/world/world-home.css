@@ -1,0 +1,455 @@
+:root {
+  --background: #080d18;
+  --surface: rgba(17, 27, 46, 0.70);
+  --border: rgba(176, 200, 235, 0.17);
+  --text: #edf2fa;
+  --muted: #a4b2c8;
+  --accent: #a9c8ef;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-height: 100%;
+  background: var(--background);
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  overflow-x: hidden;
+  color: var(--text);
+  background: var(--background);
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.cosmos {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+  background:
+    radial-gradient(
+      ellipse at 50% 0%,
+      rgba(49, 77, 125, 0.28),
+      transparent 58%
+    ),
+    linear-gradient(160deg, #101a2d, #080d18 58%, #0a1221);
+}
+
+.stars {
+  position: absolute;
+  inset: 0;
+  opacity: 0.5;
+  background-image:
+    radial-gradient(1px 1px at 12% 18%, #fff, transparent),
+    radial-gradient(1px 1px at 28% 67%, #c9dcff, transparent),
+    radial-gradient(2px 2px at 76% 24%, #fff, transparent),
+    radial-gradient(1px 1px at 88% 76%, #c9dcff, transparent),
+    radial-gradient(1px 1px at 62% 53%, #fff, transparent),
+    radial-gradient(1px 1px at 43% 32%, #c9dcff, transparent),
+    radial-gradient(2px 2px at 18% 84%, #fff, transparent),
+    radial-gradient(1px 1px at 95% 43%, #fff, transparent);
+  background-size: 420px 360px;
+  animation: star-drift 45s linear infinite;
+}
+
+.nebula {
+  position: absolute;
+  width: 48vw;
+  height: 48vw;
+  min-width: 280px;
+  min-height: 280px;
+  border-radius: 50%;
+  filter: blur(75px);
+  opacity: 0.11;
+}
+
+.nebula-one {
+  top: 8%;
+  left: -18%;
+  background: #477bc4;
+}
+
+.nebula-two {
+  right: -20%;
+  bottom: 0;
+  background: #7355a9;
+}
+
+.world-orbit {
+  position: absolute;
+  left: 50%;
+  top: 44%;
+  border: 1px solid rgba(159, 190, 235, 0.07);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.orbit-one {
+  width: min(1050px, 115vw);
+  height: min(1050px, 115vw);
+}
+
+.orbit-two {
+  width: min(1350px, 145vw);
+  height: min(1350px, 145vw);
+}
+
+.world-page {
+  position: relative;
+  z-index: 1;
+  width: min(1160px, 100%);
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 25px 32px 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.world-header {
+  position: relative;
+  padding: 20px 0 42px;
+  text-align: center;
+}
+
+.back-link {
+  position: absolute;
+  top: 8px;
+  left: 0;
+  color: #b6c4d9;
+  font-family: Arial, sans-serif;
+  font-size: 0.82rem;
+  transition: color 0.2s ease;
+}
+
+.back-link:hover {
+  color: white;
+}
+
+.back-link span {
+  margin-right: 5px;
+}
+
+.eyebrow,
+.card-category {
+  font-family: Arial, sans-serif;
+  font-size: 0.67rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+}
+
+.world-header .eyebrow {
+  margin: 32px 0 12px;
+  color: #9cb8df;
+}
+
+.world-header h1 {
+  margin: 0;
+  font-size: clamp(3rem, 7vw, 5.4rem);
+  font-weight: 400;
+  letter-spacing: 0.025em;
+  text-shadow: 0 0 35px rgba(120, 165, 230, 0.20);
+}
+
+.intro {
+  max-width: 560px;
+  margin: 18px auto 0;
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+.title-ornament {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  margin-top: 25px;
+  color: #b5cdec;
+}
+
+.title-ornament span {
+  width: 75px;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(169, 200, 239, 0.65)
+  );
+}
+
+.title-ornament span:last-child {
+  transform: rotate(180deg);
+}
+
+.title-ornament i {
+  font-size: 0.85rem;
+  font-style: normal;
+}
+
+.world-options {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+  padding-bottom: 40px;
+}
+
+.world-card {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  min-height: 270px;
+  padding: 30px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 15px;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(36, 54, 82, 0.48),
+      rgba(11, 19, 33, 0.76)
+    );
+  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.14);
+  transition:
+    transform 250ms ease,
+    border-color 250ms ease,
+    background 250ms ease,
+    box-shadow 250ms ease;
+}
+
+.world-card:hover,
+.world-card:focus-visible {
+  transform: translateY(-5px);
+  border-color: rgba(169, 200, 239, 0.55);
+  background:
+    linear-gradient(
+      135deg,
+      rgba(47, 71, 109, 0.62),
+      rgba(13, 23, 40, 0.86)
+    );
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.28);
+}
+
+.card-symbol {
+  position: absolute;
+  top: 24px;
+  right: 28px;
+  color: rgba(189, 211, 245, 0.58);
+  font-size: 2rem;
+}
+
+.card-number {
+  color: rgba(164, 192, 232, 0.40);
+  font-size: 0.8rem;
+  letter-spacing: 0.18em;
+}
+
+.card-content {
+  position: relative;
+  z-index: 1;
+  max-width: 370px;
+  margin-top: 28px;
+}
+
+.card-category {
+  margin: 0 0 12px;
+  color: #9bb5d9;
+  font-size: 0.61rem;
+  line-height: 1.6;
+}
+
+.card-content h2 {
+  margin: 0;
+  font-size: clamp(1.65rem, 3vw, 2.1rem);
+  font-weight: 400;
+  line-height: 1.25;
+}
+
+.card-content > p:not(.card-category) {
+  max-width: 340px;
+  margin: 13px 0 24px;
+  color: #aab7cb;
+  font-family: Arial, sans-serif;
+  font-size: 0.88rem;
+  line-height: 1.8;
+}
+
+.card-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: #d3e3fa;
+  font-family: Arial, sans-serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+}
+
+.card-link b {
+  font-size: 1rem;
+  font-weight: 400;
+  transition: transform 200ms ease;
+}
+
+.world-card:hover .card-link b {
+  transform: translate(3px, -3px);
+}
+
+.card-decoration {
+  position: absolute;
+  right: -55px;
+  bottom: -90px;
+  z-index: -1;
+  width: 220px;
+  height: 220px;
+  border: 1px solid rgba(173, 201, 240, 0.10);
+  border-radius: 50%;
+}
+
+.card-decoration::before,
+.card-decoration::after {
+  content: "";
+  position: absolute;
+  border: 1px solid rgba(173, 201, 240, 0.08);
+  border-radius: 50%;
+}
+
+.card-decoration::before {
+  inset: 18px;
+}
+
+.card-decoration::after {
+  inset: 40px;
+}
+
+.calendar-card {
+  --card-accent: #b6c7e8;
+}
+
+.climate-card {
+  --card-accent: #9bcac9;
+}
+
+.atlas-card {
+  --card-accent: #b9b0e5;
+}
+
+.nations-card {
+  --card-accent: #d0bd96;
+}
+
+.world-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 100%;
+  background: var(--card-accent);
+  opacity: 0.7;
+}
+
+.world-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  margin-top: auto;
+  padding: 18px 0;
+  border-top: 1px solid rgba(170, 195, 230, 0.12);
+  color: #74839b;
+  font-family: Arial, sans-serif;
+  font-size: 0.61rem;
+  letter-spacing: 0.14em;
+  line-height: 1.7;
+}
+
+@keyframes star-drift {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 420px 360px;
+  }
+}
+
+@media (min-width: 900px) {
+  .world-page {
+    padding-top: 35px;
+  }
+
+  .world-header {
+    padding-bottom: 48px;
+  }
+}
+
+@media (max-width: 650px) {
+  .world-page {
+    padding: 20px 18px 0;
+  }
+
+  .world-header {
+    padding-top: 25px;
+    padding-bottom: 30px;
+  }
+
+  .back-link {
+    position: static;
+    display: block;
+    text-align: left;
+    font-size: 0.76rem;
+  }
+
+  .world-header .eyebrow {
+    margin-top: 36px;
+  }
+
+  .world-header h1 {
+    font-size: clamp(2.8rem, 12vw, 4rem);
+  }
+
+  .intro {
+    max-width: 400px;
+    font-size: 0.9rem;
+  }
+
+  .world-options {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .world-card {
+    min-height: 235px;
+    padding: 25px;
+  }
+
+  .card-content {
+    margin-top: 24px;
+  }
+
+  .card-content h2 {
+    font-size: 1.8rem;
+  }
+
+  .world-footer {
+    font-size: 0.52rem;
+    letter-spacing: 0.08em;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

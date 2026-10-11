@@ -1,0 +1,1157 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+:root {
+
+    --background: #080d17;
+
+    --surface: rgba(14, 23, 38, 0.68);
+
+    --surface-strong: rgba(17, 28, 46, 0.84);
+
+    --border: rgba(190, 207, 232, 0.12);
+
+    --border-bright: rgba(190, 207, 232, 0.28);
+
+    --text: #edf2f8;
+
+    --muted: #929eaf;
+
+    --soft: #718096;
+
+    --accent: #c9d8ea;
+
+    --accent-blue: #8faed3;
+
+}
+
+
+/* =========================
+   PAGE
+========================= */
+
+body {
+
+    background: var(--background);
+
+    color: var(--text);
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    min-height: 100vh;
+
+    overflow-x: hidden;
+
+}
+
+
+/* =========================
+   BACKGROUND
+========================= */
+
+.background {
+
+    position: fixed;
+
+    inset: 0;
+
+    overflow: hidden;
+
+    pointer-events: none;
+
+    z-index: 0;
+
+    background:
+        radial-gradient(
+            circle at 75% 20%,
+            rgba(80, 117, 166, 0.10),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 20% 70%,
+            rgba(100, 125, 155, 0.07),
+            transparent 32%
+        );
+
+}
+
+
+/* =========================
+   STARS
+========================= */
+
+.star-field {
+
+    position: absolute;
+
+    inset: 0;
+
+    opacity: 0.45;
+
+    background-image:
+        radial-gradient(circle, rgba(220, 230, 245, 0.55) 1px, transparent 1px),
+        radial-gradient(circle, rgba(220, 230, 245, 0.25) 1px, transparent 1px);
+
+    background-size:
+        170px 170px,
+        260px 260px;
+
+    background-position:
+        20px 30px,
+        90px 100px;
+
+    animation: starsMove 35s linear infinite;
+
+}
+
+
+@keyframes starsMove {
+
+    from {
+        transform: translate(0, 0);
+    }
+
+    to {
+        transform: translate(-35px, 25px);
+    }
+
+}
+
+
+/* =========================
+   ORBS
+========================= */
+
+.orb {
+
+    position: absolute;
+
+    border-radius: 50%;
+
+    filter: blur(25px);
+
+}
+
+
+.orb-one {
+
+    width: 430px;
+
+    height: 430px;
+
+    right: -170px;
+
+    top: -120px;
+
+    background: rgba(84, 121, 169, 0.12);
+
+    animation:
+        orbOne 20s ease-in-out infinite alternate;
+
+}
+
+
+.orb-two {
+
+    width: 350px;
+
+    height: 350px;
+
+    left: -160px;
+
+    bottom: 5%;
+
+    background: rgba(120, 145, 174, 0.08);
+
+    animation:
+        orbTwo 24s ease-in-out infinite alternate;
+
+}
+
+
+@keyframes orbOne {
+
+    from {
+        transform: translate(0, 0);
+    }
+
+    to {
+        transform: translate(-80px, 65px);
+    }
+
+}
+
+
+@keyframes orbTwo {
+
+    from {
+        transform: translate(0, 0);
+    }
+
+    to {
+        transform: translate(70px, -50px);
+    }
+
+}
+
+
+/* =========================
+   FLOWING LINES
+========================= */
+
+.background-waves {
+
+    position: absolute;
+
+    width: 120%;
+
+    height: 100%;
+
+    left: -10%;
+
+    top: 0;
+
+    opacity: 0.45;
+
+}
+
+
+.background-waves path {
+
+    fill: none;
+
+    stroke: rgba(159, 184, 214, 0.12);
+
+    stroke-width: 1;
+
+    animation:
+        waveFlow 22s ease-in-out infinite alternate;
+
+}
+
+
+.background-waves path:nth-child(2) {
+
+    stroke: rgba(190, 207, 232, 0.08);
+
+    animation-duration: 28s;
+
+    animation-direction: alternate-reverse;
+
+}
+
+
+.background-waves path:nth-child(3) {
+
+    stroke: rgba(130, 159, 194, 0.07);
+
+    animation-duration: 34s;
+
+}
+
+
+@keyframes waveFlow {
+
+    from {
+        transform: translateX(-3%);
+    }
+
+    to {
+        transform: translateX(3%);
+    }
+
+}
+
+
+/* =========================
+   MAIN
+========================= */
+
+.page {
+
+    position: relative;
+
+    z-index: 2;
+
+    width: min(1080px, 90%);
+
+    margin: auto;
+
+    padding: 90px 0 45px;
+
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+
+    max-width: 750px;
+
+    margin-bottom: 100px;
+
+    animation:
+        heroAppear 1.2s ease both;
+
+}
+
+
+.eyebrow {
+
+    color: var(--accent-blue);
+
+    font-family: Arial, sans-serif;
+
+    font-size: 11px;
+
+    letter-spacing: 5px;
+
+    margin-bottom: 24px;
+
+}
+
+
+.hero h1 {
+
+    font-size: clamp(58px, 9vw, 94px);
+
+    line-height: 0.93;
+
+    font-weight: normal;
+
+    letter-spacing: -3px;
+
+    margin-bottom: 32px;
+
+}
+
+
+.hero-text {
+
+    max-width: 610px;
+
+    color: var(--muted);
+
+    font-family: Arial, sans-serif;
+
+    font-size: 15px;
+
+    line-height: 1.9;
+
+}
+
+
+@keyframes heroAppear {
+
+    from {
+
+        opacity: 0;
+
+        transform: translateY(25px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform: translateY(0);
+
+    }
+
+}
+
+
+/* =========================
+   SECTIONS
+========================= */
+
+.section {
+
+    margin-bottom: 85px;
+
+}
+
+
+.section-label {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 17px;
+
+    margin-bottom: 18px;
+
+    color: var(--accent-blue);
+
+    font-family: Arial, sans-serif;
+
+    font-size: 10px;
+
+    letter-spacing: 3px;
+
+}
+
+
+.section-label span:first-child {
+
+    color: var(--soft);
+
+    letter-spacing: 1px;
+
+}
+
+
+/* =========================
+   LAST WHITE HEIR
+========================= */
+
+.main-card {
+
+    position: relative;
+
+    padding: 45px;
+
+    border: 1px solid var(--border-bright);
+
+    border-radius: 7px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(21, 35, 56, 0.78),
+            rgba(10, 17, 29, 0.68)
+        );
+
+    backdrop-filter: blur(16px);
+
+    -webkit-backdrop-filter: blur(16px);
+
+    box-shadow:
+        0 25px 65px rgba(0, 0, 0, 0.28);
+
+    animation:
+        cardFloat 8s ease-in-out infinite;
+
+    overflow: hidden;
+
+}
+
+
+.main-card::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 300px;
+
+    height: 300px;
+
+    border-radius: 50%;
+
+    background: rgba(125, 159, 201, 0.06);
+
+    filter: blur(30px);
+
+    right: -100px;
+
+    top: -150px;
+
+}
+
+
+.main-card-top {
+
+    position: relative;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 20px;
+
+}
+
+
+.project-type {
+
+    color: var(--accent-blue);
+
+    font-family: Arial, sans-serif;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+
+}
+
+
+.status {
+
+    color: var(--soft);
+
+    font-family: Arial, sans-serif;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+    white-space: nowrap;
+
+}
+
+
+.main-card h2 {
+
+    position: relative;
+
+    font-size: clamp(40px, 6vw, 62px);
+
+    font-weight: normal;
+
+    line-height: 1;
+
+    margin: 28px 0;
+
+}
+
+
+.main-description {
+
+    position: relative;
+
+    max-width: 760px;
+
+    color: var(--muted);
+
+    font-family: Arial, sans-serif;
+
+    font-size: 14px;
+
+    line-height: 1.9;
+
+}
+
+
+/* =========================
+   VOLUMES
+========================= */
+
+.volume-row {
+
+    position: relative;
+
+    display: flex;
+
+    gap: 16px;
+
+    margin-top: 35px;
+    margin-bottom: 22px;
+
+}
+
+
+.volume {
+
+    min-width: 175px;
+
+    padding: 16px 18px;
+
+    border: 1px solid var(--border);
+
+    background: rgba(255, 255, 255, 0.025);
+
+    border-radius: 4px;
+
+}
+
+
+.volume.available {
+
+    border-color: rgba(143, 174, 211, 0.28);
+
+}
+
+
+.volume-number {
+
+    display: block;
+
+    color: var(--text);
+
+    font-family: Arial, sans-serif;
+
+    font-size: 10px;
+
+    letter-spacing: 1.5px;
+
+    margin-bottom: 7px;
+
+}
+
+
+.volume-status {
+
+    display: block;
+
+    color: var(--soft);
+
+    font-family: Arial, sans-serif;
+
+    font-size: 9px;
+
+    letter-spacing: 1px;
+
+}
+
+
+/* =========================
+   BUTTON
+========================= */
+
+.primary-button {
+
+    position: relative;
+
+    margin-top: 32px;
+
+    padding: 14px 24px;
+
+    border: 1px solid rgba(159, 184, 214, 0.30);
+
+    background: rgba(159, 184, 214, 0.07);
+
+    color: var(--accent);
+
+    font-family: Arial, sans-serif;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    cursor: pointer;
+
+    border-radius: 3px;
+
+    transition:
+        background 0.3s ease,
+        border-color 0.3s ease,
+        transform 0.3s ease;
+
+}
+
+
+.primary-button:hover {
+
+    background: rgba(159, 184, 214, 0.14);
+
+    border-color: rgba(159, 184, 214, 0.5);
+
+    transform: translateX(6px);
+
+}
+/* =========================
+   ARCHIVE LINKS
+========================= */
+
+.archive-link {
+
+    display: block;
+
+    color: inherit;
+
+    text-decoration: none;
+
+    cursor: pointer;
+
+}
+
+
+.archive-enter {
+
+    display: block;
+
+    margin-top: 22px;
+
+    color: var(--accent-blue);
+
+    font-family: Arial, sans-serif;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+    opacity: 0;
+
+    transform: translateX(-5px);
+
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease;
+
+}
+
+
+.archive-link:hover .archive-enter {
+
+    opacity: 1;
+
+    transform: translateX(0);
+
+}
+
+
+/* =========================
+   FLOATING CARDS
+========================= */
+
+.project-card {
+
+    display: grid;
+
+    grid-template-columns: 65px 1fr;
+
+    gap: 25px;
+
+    padding: 35px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 6px;
+
+    background: var(--surface);
+
+    backdrop-filter: blur(14px);
+
+    -webkit-backdrop-filter: blur(14px);
+
+    box-shadow:
+        0 18px 45px rgba(0, 0, 0, 0.16);
+
+    animation:
+        cardFloat 9s ease-in-out infinite;
+
+    transition:
+        transform 0.4s ease,
+        border-color 0.4s ease,
+        background 0.4s ease;
+
+}
+
+
+.project-card:hover {
+
+    transform: translateY(-7px);
+
+    border-color: var(--border-bright);
+
+    background: var(--surface-strong);
+
+}
+
+
+.project-number {
+
+    color: var(--soft);
+
+    font-family: Arial, sans-serif;
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+
+}
+
+
+.project-content {
+
+    max-width: 780px;
+
+}
+
+
+.project-content h2 {
+
+    font-size: 38px;
+
+    font-weight: normal;
+
+    line-height: 1.1;
+
+    margin: 15px 0 22px;
+
+}
+
+
+.project-content p {
+
+    color: var(--muted);
+
+    font-family: Arial, sans-serif;
+
+    font-size: 13px;
+
+    line-height: 1.8;
+
+    margin-bottom: 13px;
+
+}
+
+
+.project-status {
+
+    display: inline-block;
+
+    margin-top: 12px;
+
+    color: var(--accent-blue);
+
+    font-family: Arial, sans-serif;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+}
+
+
+/* =========================
+   TEMPORARY TITLE
+========================= */
+
+.temporary {
+
+    display: inline-block;
+
+    margin-bottom: 7px;
+
+    padding: 5px 8px;
+
+    border: 1px solid rgba(143, 174, 211, 0.18);
+
+    color: var(--soft);
+
+    font-family: Arial, sans-serif;
+
+    font-size: 8px;
+
+    letter-spacing: 1.5px;
+
+}
+
+/* =========================
+   ARCHIVE OVERVIEW
+========================= */
+
+.archive-overview {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 30px;
+
+    padding: 32px;
+    margin-top: 20px;
+
+    color: inherit;
+    text-decoration: none;
+
+    border: 1px solid var(--border);
+    background: var(--surface);
+
+    transition:
+        transform 0.35s ease,
+        border-color 0.35s ease,
+        background 0.35s ease;
+}
+
+.archive-overview:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent-blue);
+    background: rgba(20, 35, 55, 0.75);
+}
+
+.archive-overview h2 {
+    margin: 8px 0 10px;
+}
+
+.archive-overview p {
+    margin: 0;
+}
+
+.archive-enter {
+    flex-shrink: 0;
+
+    color: var(--accent-blue);
+
+    font-family: Arial, sans-serif;
+    font-size: 9px;
+    letter-spacing: 2px;
+
+    opacity: 0.7;
+
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease;
+}
+
+.archive-overview:hover .archive-enter {
+    opacity: 1;
+    transform: translateX(5px);
+}
+
+@media (max-width: 650px) {
+    .archive-overview {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}
+
+
+/* =========================
+   CLOSING
+========================= */
+
+.closing {
+
+    padding: 50px 0 100px;
+
+    text-align: center;
+
+}
+
+
+.closing-mark {
+
+    color: var(--accent-blue);
+
+    font-size: 18px;
+
+    margin-bottom: 20px;
+
+}
+
+
+.closing p:last-child {
+
+    color: #7f8b9b;
+
+    font-size: clamp(25px, 4vw, 36px);
+
+    font-style: italic;
+
+    line-height: 1.4;
+
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding-top: 22px;
+
+    border-top: 1px solid var(--border);
+
+    color: var(--soft);
+
+    font-family: Arial, sans-serif;
+
+    font-size: 9px;
+
+    letter-spacing: 1.5px;
+
+}
+
+
+footer a {
+
+    color: var(--accent-blue);
+
+    text-decoration: none;
+
+    transition:
+        transform 0.3s ease;
+
+}
+
+
+footer a:hover {
+
+    transform: translateX(-5px);
+
+}
+
+
+/* =========================
+   FLOAT
+========================= */
+
+@keyframes cardFloat {
+
+    0%,
+    100% {
+
+        transform: translateY(0);
+
+    }
+
+    50% {
+
+        transform: translateY(-4px);
+
+    }
+
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 700px) {
+
+    .page {
+
+        width: 88%;
+
+        padding-top: 65px;
+
+    }
+
+
+    .hero {
+
+        margin-bottom: 75px;
+
+    }
+
+
+    .hero h1 {
+
+        font-size: clamp(52px, 14vw, 72px);
+
+    }
+
+
+    .main-card {
+
+        padding: 28px;
+
+    }
+
+
+    .main-card-top {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+    }
+
+
+    .main-card h2 {
+
+        font-size: 41px;
+
+    }
+
+
+    .volume-row {
+
+        flex-direction: column;
+
+    }
+
+
+    .volume {
+
+        width: 100%;
+
+    }
+
+
+    .project-card {
+
+        grid-template-columns: 1fr;
+
+        gap: 10px;
+
+        padding: 27px;
+
+    }
+
+
+    .project-content h2 {
+
+        font-size: 32px;
+
+    }
+
+
+    .archive-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+  .realm-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+
+    footer {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 13px;
+
+    }
+
+}
+
+
+/* =========================
+   REDUCED MOTION
+========================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+
+        animation-duration: 0.01ms !important;
+
+        animation-iteration-count: 1 !important;
+
+        scroll-behavior: auto !important;
+
+    }
+
+}
+
